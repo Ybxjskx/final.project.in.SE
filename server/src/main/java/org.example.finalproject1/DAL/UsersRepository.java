@@ -12,6 +12,11 @@ public class UsersRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
+    public  static void main(String[] args) {
+        User manager=new User("1234",UserType.Admin);
+
+    }
+
     public User FindUser(int id) {
         return entityManager.find(User.class, id);
     }

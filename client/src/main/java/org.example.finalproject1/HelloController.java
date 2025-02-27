@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.finalproject1.DAL.UserType;
@@ -42,20 +43,18 @@ public class HelloController {
     @FXML
         //check if the details are correct, if they not show an error
     void onConnectButtonClick(ActionEvent event) throws IOException {
-        int user=-1;
+        int user = -1;
         try {
-             user = Integer.parseInt(username.getText());
-        }
-        catch (NumberFormatException e) {
+            user = Integer.parseInt(username.getText());
+        } catch (NumberFormatException e) {
             wrongDetails.setText("Invalid username, the user name should only contain numbers");
         }
-        if (user==-1 || password.getText().isEmpty()) {
+        if (user == -1 || password.getText().isEmpty()) {
             wrongDetails.setText("Please fill all the fields");
-        }
-        else if (!usersRepository.userExists(user)) {
+        } else if (!usersRepository.userExists(user)) {
             wrongDetails.setText("User not found, you can create a new account");
         } else if (usersRepository.correctPassword(user, password.getText())) {
-            if (usersRepository.getUserType(user, password.getText())== UserType.valueOf("Admin")){
+            if (usersRepository.getUserType(user, password.getText()) == UserType.valueOf("Admin")) {
                 HelloApplication.setRoot("manager_personal_page.fxml");
             }
         } else {

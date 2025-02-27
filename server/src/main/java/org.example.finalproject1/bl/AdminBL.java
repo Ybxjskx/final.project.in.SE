@@ -1,7 +1,5 @@
 package org.example.finalproject1.bl;
 
-import org.example.finalproject1.DAL.*;
-
 import java.util.List;
 
 public class AdminBL {
