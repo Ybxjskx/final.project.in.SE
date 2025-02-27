@@ -46,8 +46,14 @@ public class HelloController {
     @FXML
         //check if the details are correct, if they not show an error
     void onConnectButtonClick(ActionEvent event) throws IOException {
-        int user = Integer.parseInt(username.getText());
-        if (username.getText().isEmpty() || password.getText().isEmpty()) {
+        int user=-1;
+        try {
+             user = Integer.parseInt(username.getText());
+        }
+        catch (NumberFormatException e) {
+            wrongDetails.setText("Invalid username, the user name should only contain numbers");
+        }
+        if (user==-1 || password.getText().isEmpty()) {
             wrongDetails.setText("Please fill all the fields");
         }
         else if (!usersRepository.userExists(user)) {

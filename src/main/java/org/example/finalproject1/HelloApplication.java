@@ -9,28 +9,31 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    private static Scene scene;
+    private static Stage stg;
+
     @Override
-    public void start(Stage stage) throws IOException
-    {
+    public void start(Stage stage) throws IOException {
+        stg = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-page.fxml"));
-        scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load(), 629, 386);
+        stage.setTitle("Restaurant App");
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args)
-    {
+    public static void changeScene(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        Scene scene = new Scene(fxmlLoader.load(), 629, 386);
+        stg.setScene(scene);
+    }
+
+    public static void setRoot(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        Scene scene = new Scene(fxmlLoader.load(), 629, 386);
+        stg.setScene(scene);
+    }
+
+    public static void main(String[] args) {
         launch();
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
     }
 }
