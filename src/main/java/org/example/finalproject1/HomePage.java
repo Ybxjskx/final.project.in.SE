@@ -41,7 +41,7 @@ public class HomePage {
 
     @FXML
     void toConnect(ActionEvent event) throws IOException {
-        HelloApplication.setRoot("hello-view.fxml");
+        HelloApplication.changeScene("hello-view.fxml");
     }
 
     @FXML
