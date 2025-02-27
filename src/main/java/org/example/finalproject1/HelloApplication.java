@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class HelloApplication extends Application {
     private static Stage stg;
 
@@ -17,9 +18,6 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 629, 386);
         stage.setTitle("Restaurant App");
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public static void changeScene(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
