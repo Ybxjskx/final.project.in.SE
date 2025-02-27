@@ -9,7 +9,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.example.finalproject1.DAL.UserType;
+//import org.example.finalproject1.DAL.UserType;
 import org.example.finalproject1.DAL.UsersRepository;
 
 import java.io.IOException;
