@@ -2,8 +2,6 @@ package org.example.finalproject1.DAL;
 
 import jakarta.persistence.*;
 
-import java.util.Scanner;
-
 @Entity
 @Table(name = "users")
 public class User{
@@ -19,12 +17,14 @@ public class User{
     @Column(name="password")
     private String password;
 
-    public int User() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter your selected password: ");
-        String password=scanner.nextLine();
+    public User(String password, UserType type) {
         this.password=password;
-        return id;
+        this.type=type;
+        System.out.println(id);
+    }
+
+    public User() {
+
     }
 
 
