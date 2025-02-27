@@ -14,7 +14,7 @@ public class AdminBL {
         this.usersRepository = usersRepository;
     }
     public void deleteMenuItem(int menuId, int userId) {
-        User user = usersRepository.findUser(userId);
+        User user = usersRepository.FindUser(userId);
 
         if (!user.isAdmin()) {
             return;
